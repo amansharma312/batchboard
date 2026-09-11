@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BatchBoard
 
-## Getting Started
+**Agent ops board for AI-first teams.** Monitor and manage Claude Batch API jobs, AI agent pipelines, and LLM workloads from one dashboard.
 
-First, run the development server:
+BatchBoard gives CTOs, engineers, and ops leads a single pane of glass for their AI agent infrastructure — queued/running/completed/failed jobs, cost per run, error previews, and retry controls. No more SSH-ing into logs.
+
+## Stack
+
+| Layer | Choice |
+|---|---|
+| Frontend | Next.js 14 (App Router) + TypeScript |
+| Styling | Tailwind CSS |
+| Hosting | Vercel |
+| Package manager | npm |
+
+## Local dev
+
+**Prerequisites:** Node.js 20+, npm 10+
 
 ```bash
+# 1. Clone
+git clone https://github.com/amansharma312/batchboard.git
+cd batchboard
+
+# 2. Install
+npm install
+
+# 3. Configure env
+cp .env.example .env.local
+# Edit .env.local and fill in the required values (see comments in the file)
+
+# 4. Start dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+App runs at [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command | Purpose |
+|---|---|
+| `npm run dev` | Start local dev server |
+| `npm run build` | Production build |
+| `npm run start` | Serve production build |
+| `npm run lint` | ESLint check |
+| `npm run typecheck` | TypeScript check (no emit) |
 
-## Learn More
+## Project structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+├── app/              # Next.js App Router pages and layouts
+├── components/
+│   └── ui/           # Shared UI primitives
+├── hooks/            # Custom React hooks
+├── lib/              # Utilities, API clients, shared logic
+└── styles/           # Global styles and CSS tokens
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Environment variables
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Copy `.env.example` to `.env.local` and fill in values. Never commit `.env.local`.
 
-## Deploy on Vercel
+## Contributing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This is an early-stage internal project. Development is tracked in [Paperclip](https://paperclip.ing).

@@ -109,10 +109,7 @@ GitHub Actions (`.github/workflows/ci.yml`) runs on every push to `main` and on 
 
 1. **Lint** — `npm run lint`
 2. **Typecheck** — `npm run typecheck`
-3. **Test** — `npm test` (Vitest)
-4. **Build** — `npm run build`
-
-Branch protection on `main` requires all checks to pass before merge.
+3. **Build** — `npm run build`
 
 Run `make check` locally before pushing to catch failures early.
 

@@ -5,9 +5,11 @@ import path from 'path'
 export default defineConfig({
   plugins: [react()],
   test: {
-    environment: 'jsdom',
+    // Default environment for utility/logic tests (no DOM needed).
+    // Component tests should add `@vitest-environment jsdom` per file
+    // or override via environmentMatchGlobs when jsdom support is added.
+    environment: 'node',
     globals: true,
-    setupFiles: ['./src/test/setup.ts'],
   },
   resolve: {
     alias: {
